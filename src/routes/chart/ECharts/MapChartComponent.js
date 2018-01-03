@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
 
-require('echarts/map/js/china.js')
+require('echarts/map/js/china.js');
 
 class MapChartComponent extends React.Component {
   constructor () {
-    super()
-    this.timeTicket = null
+    super();
+    this.timeTicket = null;
     const randomData = () => {
-      return Math.round(Math.random() * 1000)
-    }
+      return Math.round(Math.random() * 1000);
+    };
     const option = {
       title: {
         text: 'iphone销量',
@@ -151,29 +151,29 @@ class MapChartComponent extends React.Component {
           ],
         },
       ],
-    }
+    };
     this.state = {
       option,
-    }
+    };
   }
 
   componentDidMount () {
     if (this.timeTicket) {
-      clearInterval(this.timeTicket)
+      clearInterval(this.timeTicket);
     }
     this.timeTicket = setInterval(() => {
-      const { option } = this.state
-      const r = new Date().getSeconds()
-      option.title.text = `iphone销量${r}`
-      option.series[0].name = `iphone销量${r}`
-      option.legend.data[0] = `iphone销量${r}`
-      this.setState({ option })
-    }, 1000)
+      const { option } = this.state;
+      const r = new Date().getSeconds();
+      option.title.text = `iphone销量${r}`;
+      option.series[0].name = `iphone销量${r}`;
+      option.legend.data[0] = `iphone销量${r}`;
+      this.setState({ option });
+    }, 1000);
   }
 
   componentWillUnmount () {
     if (this.timeTicket) {
-      clearInterval(this.timeTicket)
+      clearInterval(this.timeTicket);
     }
   }
 
@@ -182,7 +182,7 @@ class MapChartComponent extends React.Component {
                     '<ReactEcharts \n' +
                     '    option={this.state.option || {}} \n' +
                     "    style={{height: '350px', width: '100%'}}  \n" +
-                    "    className='react_for_echarts' />"
+                    "    className='react_for_echarts' />";
     return (
       <div className="examples">
         <div className="parent">
@@ -198,8 +198,8 @@ class MapChartComponent extends React.Component {
           </pre>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default MapChartComponent
+export default MapChartComponent;

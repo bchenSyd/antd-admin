@@ -1,16 +1,16 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
 
 const ChartWithEventComponent = () => {
   const onChartReady = (echart) => {
-    console.log('echart is ready', echart)
-  }
+    console.log('echart is ready', echart);
+  };
   const onChartLegendselectchanged = (param, echart) => {
-    console.log(param, echart)
-  }
+    console.log(param, echart);
+  };
   const onChartClick = (param, echart) => {
-    console.log(param, echart)
-  }
+    console.log(param, echart);
+  };
   const getOtion = () => {
     const option = {
       title: {
@@ -49,14 +49,14 @@ const ChartWithEventComponent = () => {
           },
         },
       ],
-    }
-    return option
-  }
+    };
+    return option;
+  };
 
   let onEvents = {
     click: onChartClick,
     legendselectchanged: onChartLegendselectchanged,
-  }
+  };
   let code = 'let onEvents = {\n' +
                    "  'click': onChartClick,\n" +
                    "  'legendselectchanged': onChartLegendselectchanged\n" +
@@ -65,7 +65,7 @@ const ChartWithEventComponent = () => {
                     '    option={getOtion()} \n' +
                     '    style={{height: 300}} \n' +
                     '    onChartReady={onChartReady} \n' +
-                    '    onEvents={onEvents} />'
+                    '    onEvents={onEvents} />';
 
   return (
     <div className="examples">
@@ -83,7 +83,7 @@ const ChartWithEventComponent = () => {
         </pre>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ChartWithEventComponent
+export default ChartWithEventComponent;

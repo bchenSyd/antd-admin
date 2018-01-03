@@ -1,4 +1,4 @@
-import modelExtend from 'dva-model-extend'
+import modelExtend from 'dva-model-extend';
 
 const model = {
   reducers: {
@@ -6,10 +6,10 @@ const model = {
       return {
         ...state,
         ...payload,
-      }
+      };
     },
   },
-}
+};
 
 const pageModel = modelExtend(model, {
 
@@ -26,7 +26,7 @@ const pageModel = modelExtend(model, {
 
   reducers: {
     querySuccess (state, { payload }) {
-      const { list, pagination } = payload
+      const { list, pagination } = payload;
       return {
         ...state,
         list,
@@ -34,14 +34,14 @@ const pageModel = modelExtend(model, {
           ...state.pagination,
           ...pagination,
         },
-      }
+      };
     },
   },
 
-})
+});
 
 
-module.exports = {
+export {
   model,
   pageModel,
-}
+};

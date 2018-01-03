@@ -1,22 +1,22 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
-import echarts from 'echarts'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
+import echarts from 'echarts';
 
 const CalendarComponent = () => {
   const getVirtulData = (year) => {
-    year = year || '2017'
-    let date = +echarts.number.parseDate(`${year}-01-01`)
-    let end = +echarts.number.parseDate(`${+year + 1}-01-01`)
-    let dayTime = 3600 * 24 * 1000
-    let data = []
+    year = year || '2017';
+    let date = +echarts.number.parseDate(`${year}-01-01`);
+    let end = +echarts.number.parseDate(`${+year + 1}-01-01`);
+    let dayTime = 3600 * 24 * 1000;
+    let data = [];
     for (let time = date; time < end; time += dayTime) {
       data.push([
         echarts.format.formatTime('yyyy-MM-dd', time),
         Math.floor(Math.random() * 1000),
-      ])
+      ]);
     }
-    return data
-  }
+    return data;
+  };
 
   let graphData = [[
     1485878400000,
@@ -40,15 +40,15 @@ const CalendarComponent = () => {
     1488124800000,
     985,
   ],
-  ]
+  ];
 
   let links = graphData.map((item, idx) => {
     return {
       source: idx,
       target: idx + 1,
-    }
-  })
-  links.pop()
+    };
+  });
+  links.pop();
 
   const option = {
     tooltip: {
@@ -161,7 +161,7 @@ const CalendarComponent = () => {
       coordinateSystem: 'calendar',
       calendarIndex: 1,
       symbolSize (val) {
-        return val[1] / 40
+        return val[1] / 40;
       },
       data: getVirtulData(2017),
     }, {
@@ -169,7 +169,7 @@ const CalendarComponent = () => {
       coordinateSystem: 'calendar',
       calendarIndex: 2,
       symbolSize (val) {
-        return val[1] / 60
+        return val[1] / 60;
       },
       data: getVirtulData(2017),
     }, {
@@ -178,7 +178,7 @@ const CalendarComponent = () => {
       calendarIndex: 3,
       data: getVirtulData(2017),
     }],
-  }
+  };
 
   return (
     <div className="examples">
@@ -191,7 +191,7 @@ const CalendarComponent = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CalendarComponent
+export default CalendarComponent;

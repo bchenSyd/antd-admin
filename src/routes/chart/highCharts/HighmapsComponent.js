@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactHighmaps from 'react-highcharts/ReactHighmaps.src'
-import maps from './mapdata/europe'
+import React from 'react';
+import ReactHighmaps from 'react-highcharts/ReactHighmaps.src';
+import maps from './mapdata/europe';
 
 const config = {
   chart: {
@@ -37,18 +37,18 @@ const config = {
   series: [{
     name: 'UTC',
     data: ['IE', 'IS', 'GB', 'PT'].map((code) => {
-      return { code }
+      return { code };
     }),
   }, {
     name: 'UTC + 1',
     data: ['NO', 'SE', 'DK', 'DE', 'NL', 'BE', 'LU', 'ES', 'FR', 'PL', 'CZ', 'AT', 'CH', 'LI', 'SK', 'HU',
       'SI', 'IT', 'SM', 'HR', 'BA', 'YF', 'ME', 'AL', 'MK'].map((code) => {
-      return { code }
+      return { code };
     }),
   }],
-}
+};
 
 const HighmapsComponent = () => {
-  return <ReactHighmaps config={config} />
-}
-export default HighmapsComponent
+  return <ReactHighmaps config={config} />;
+};
+export default HighmapsComponent;

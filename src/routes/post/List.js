@@ -1,6 +1,6 @@
-import React from 'react'
-import { Table } from 'antd'
-import styles from './List.less'
+import React from 'react';
+import { Table } from 'antd';
+import styles from './List.less';
 
 const List = ({ ...tableProps }) => {
   const columns = [
@@ -35,7 +35,7 @@ const List = ({ ...tableProps }) => {
       title: 'Date',
       dataIndex: 'date',
     },
-  ]
+  ];
 
   return (
     <div>
@@ -49,7 +49,7 @@ const List = ({ ...tableProps }) => {
         rowKey={record => record.id}
       />
     </div>
-  )
-}
+  );
+};
 
-export default List
+export default List;

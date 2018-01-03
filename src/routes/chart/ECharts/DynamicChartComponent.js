@@ -1,11 +1,11 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
 
 class DynamicChartComponent extends React.Component {
   constructor (props) {
-    super(props)
-    this.timeTicket = null
-    this.count = 51
+    super(props);
+    this.timeTicket = null;
+    this.count = 51;
 
     const option = {
       title: {
@@ -49,26 +49,26 @@ class DynamicChartComponent extends React.Component {
           type: 'category',
           boundaryGap: true,
           data: (function () {
-            let now = new Date()
-            let res = []
-            let len = 50
+            let now = new Date();
+            let res = [];
+            let len = 50;
             while (len--) {
-              res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''))
-              now = new Date(now - 2000)
+              res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
+              now = new Date(now - 2000);
             }
-            return res
+            return res;
           }()),
         },
         {
           type: 'category',
           boundaryGap: true,
           data: (function () {
-            let res = []
-            let len = 50
+            let res = [];
+            let len = 50;
             while (len--) {
-              res.push(50 - len + 1)
+              res.push(50 - len + 1);
             }
-            return res
+            return res;
           }()),
         },
       ],
@@ -103,77 +103,77 @@ class DynamicChartComponent extends React.Component {
           },
           animationEasing: 'elasticOut',
           animationDelay (idx) {
-            return idx * 10
+            return idx * 10;
           },
           animationDelayUpdate (idx) {
-            return idx * 10
+            return idx * 10;
           },
           data: (function () {
-            let res = []
-            let len = 50
+            let res = [];
+            let len = 50;
             while (len--) {
-              res.push(Math.round(Math.random() * 1000))
+              res.push(Math.round(Math.random() * 1000));
             }
-            return res
+            return res;
           }()),
         },
         {
           name: '最新成交价',
           type: 'line',
           data: (function () {
-            let res = []
-            let len = 0
+            let res = [];
+            let len = 0;
             while (len < 50) {
-              res.push((Math.random() * 10 + 5).toFixed(1) - 0)
-              len++
+              res.push((Math.random() * 10 + 5).toFixed(1) - 0);
+              len++;
             }
-            return res
+            return res;
           }()),
         },
       ],
-    }
+    };
 
     this.state = {
       option,
-    }
+    };
 
-    this.fetchNewDate = this.fetchNewDate.bind(this)
+    this.fetchNewDate = this.fetchNewDate.bind(this);
   }
 
   fetchNewDate () {
-    let axisData = (new Date()).toLocaleTimeString().replace(/^\D*/, '')
-    let { option } = this.state
-    option.title.text = `Hello Echarts-for-react.${new Date().getSeconds()}`
-    let data0 = option.series[0].data
-    let data1 = option.series[1].data
-    data0.shift()
-    data0.push(Math.round(Math.random() * 1000))
-    data1.shift()
-    data1.push((Math.random() * 10 + 5).toFixed(1) - 0)
+    let axisData = (new Date()).toLocaleTimeString().replace(/^\D*/, '');
+    let { option } = this.state;
+    option.title.text = `Hello Echarts-for-react.${new Date().getSeconds()}`;
+    let data0 = option.series[0].data;
+    let data1 = option.series[1].data;
+    data0.shift();
+    data0.push(Math.round(Math.random() * 1000));
+    data1.shift();
+    data1.push((Math.random() * 10 + 5).toFixed(1) - 0);
 
-    option.xAxis[0].data.shift()
-    option.xAxis[0].data.push(axisData)
-    option.xAxis[1].data.shift()
-    option.xAxis[1].data.push(this.count += 1)
-    this.setState({ option })
+    option.xAxis[0].data.shift();
+    option.xAxis[0].data.push(axisData);
+    option.xAxis[1].data.shift();
+    option.xAxis[1].data.push(this.count += 1);
+    this.setState({ option });
   }
 
   componentDidMount () {
     if (this.timeTicket) {
-      clearInterval(this.timeTicket)
+      clearInterval(this.timeTicket);
     }
-    this.timeTicket = setInterval(this.fetchNewDate, 1000)
+    this.timeTicket = setInterval(this.fetchNewDate, 1000);
   }
 
   componentWillUnmount () {
     if (this.timeTicket) {
-      clearInterval(this.timeTicket)
+      clearInterval(this.timeTicket);
     }
   }
 
   render () {
     let code = "<ReactEcharts ref='echartsInstance' \n" +
-                    '    option={this.state.option} />\n'
+                    '    option={this.state.option} />\n';
     return (
       <div className="examples">
         <div className="parent">
@@ -188,8 +188,8 @@ class DynamicChartComponent extends React.Component {
           </pre>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default DynamicChartComponent
+export default DynamicChartComponent;

@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
-import echarts from 'echarts'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
+import echarts from 'echarts';
 
 const LunarCalendarComponent = () => {
   const getOtion = () => {
@@ -370,27 +370,27 @@ const LunarCalendarComponent = () => {
       ['2017-12-29', '十二'],
       ['2017-12-30', '十三'],
       ['2017-12-31', '十四'],
-    ]
+    ];
 
-    let heatmapData = []
-    let lunarData = []
+    let heatmapData = [];
+    let lunarData = [];
     for (let i = 0; i < dateList.length; i++) {
       heatmapData.push([
         dateList[i][0],
         Math.random() * 300,
-      ])
+      ]);
       lunarData.push([
         dateList[i][0],
         1,
         dateList[i][1],
         dateList[i][2],
-      ])
+      ]);
     }
 
     const option = {
       tooltip: {
         formatter (params) {
-          return `降雨量: ${params.value[1].toFixed(2)}`
+          return `降雨量: ${params.value[1].toFixed(2)}`;
         },
       },
 
@@ -438,8 +438,8 @@ const LunarCalendarComponent = () => {
           normal: {
             show: true,
             formatter (params) {
-              let d = echarts.number.parseDate(params.value[0])
-              return `${d.getDate()}\n\n${params.value[2]}\n\n`
+              let d = echarts.number.parseDate(params.value[0]);
+              return `${d.getDate()}\n\n${params.value[2]}\n\n`;
             },
             textStyle: {
               color: '#000',
@@ -455,7 +455,7 @@ const LunarCalendarComponent = () => {
           normal: {
             show: true,
             formatter (params) {
-              return `\n\n\n${params.value[3] || ''}`
+              return `\n\n\n${params.value[3] || ''}`;
             },
             textStyle: {
               fontSize: 14,
@@ -471,9 +471,9 @@ const LunarCalendarComponent = () => {
         coordinateSystem: 'calendar',
         data: heatmapData,
       }],
-    }
-    return option
-  }
+    };
+    return option;
+  };
 
   return (
     <div className="examples">
@@ -486,7 +486,7 @@ const LunarCalendarComponent = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LunarCalendarComponent
+export default LunarCalendarComponent;

@@ -1,14 +1,14 @@
-import { request, config } from 'utils'
+import { request, config } from 'utils';
 
-const { api } = config
-const { user } = api
+const { api } = config;
+const { user } = api;
 
 export async function query (params) {
   return request({
     url: user,
     method: 'get',
     data: params,
-  })
+  });
 }
 
 export async function create (params) {
@@ -16,7 +16,7 @@ export async function create (params) {
     url: user.replace('/:id', ''),
     method: 'post',
     data: params,
-  })
+  });
 }
 
 export async function remove (params) {
@@ -24,7 +24,7 @@ export async function remove (params) {
     url: user,
     method: 'delete',
     data: params,
-  })
+  });
 }
 
 export async function update (params) {
@@ -32,5 +32,5 @@ export async function update (params) {
     url: user,
     method: 'patch',
     data: params,
-  })
+  });
 }

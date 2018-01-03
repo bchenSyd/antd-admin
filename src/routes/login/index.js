@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'dva'
-import { Button, Row, Form, Input } from 'antd'
-import { config } from 'utils'
-import styles from './index.less'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'dva';
+import { Button, Row, Form, Input } from 'antd';
+import { config } from 'utils';
+import styles from './index.less';
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 const Login = ({
   loading,
@@ -18,10 +18,10 @@ const Login = ({
   function handleOk () {
     validateFieldsAndScroll((errors, values) => {
       if (errors) {
-        return
+        return;
       }
-      dispatch({ type: 'login/login', payload: values })
-    })
+      dispatch({ type: 'login/login', payload: values });
+    });
   }
 
   return (
@@ -61,13 +61,13 @@ const Login = ({
 
       </form>
     </div>
-  )
-}
+  );
+};
 
 Login.propTypes = {
   form: PropTypes.object,
   dispatch: PropTypes.func,
   loading: PropTypes.object,
-}
+};
 
-export default connect(({ loading }) => ({ loading }))(Form.create()(Login))
+export default connect(({ loading }) => ({ loading }))(Form.create()(Login));

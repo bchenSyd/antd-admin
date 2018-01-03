@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
 
-import echarts from 'echarts'
+import echarts from 'echarts';
 
 const ThemeChartComponent = () => {
   const option = {
@@ -75,19 +75,19 @@ const ThemeChartComponent = () => {
         data: ['-', '-', '-', 108, 154, '-', '-', '-', 119, 361, 203],
       },
     ],
-  }
+  };
 
 
   echarts.registerTheme('my_theme', {
     backgroundColor: '#f4cccc',
-  })
+  });
 
   let code = "echarts.registerTheme('my_theme', {\n" +
                    "  backgroundColor: '#f4cccc'\n" +
                    '});\n\n' +
                    '<ReactEcharts \n' +
                     '    option={this.getOtion()} \n' +
-                    "    theme='my_theme' />"
+                    "    theme='my_theme' />";
   return (
     <div className="examples">
       <div className="parent">
@@ -102,7 +102,7 @@ const ThemeChartComponent = () => {
         </pre>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ThemeChartComponent
+export default ThemeChartComponent;

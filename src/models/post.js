@@ -1,7 +1,7 @@
-import modelExtend from 'dva-model-extend'
-import { query } from 'services/posts'
-import { pageModel } from 'models/common'
-import queryString from 'query-string'
+import modelExtend from 'dva-model-extend';
+import { query } from 'services/posts';
+import { pageModel } from 'models/common';
+import queryString from 'query-string';
 
 export default modelExtend(pageModel, {
 
@@ -17,9 +17,9 @@ export default modelExtend(pageModel, {
               status: 2,
               ...queryString.parse(location.search),
             },
-          })
+          });
         }
-      })
+      });
     },
   },
 
@@ -27,7 +27,7 @@ export default modelExtend(pageModel, {
     * query ({
       payload,
     }, { call, put }) {
-      const data = yield call(query, payload)
+      const data = yield call(query, payload);
       if (data.success) {
         yield put({
           type: 'querySuccess',
@@ -39,10 +39,10 @@ export default modelExtend(pageModel, {
               total: data.total,
             },
           },
-        })
+        });
       } else {
-        throw data
+        throw data;
       }
     },
   },
-})
+});

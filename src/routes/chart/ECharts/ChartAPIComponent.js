@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
 
 class ChartAPIComponent extends React.Component {
   render () {
@@ -90,18 +90,18 @@ class ChartAPIComponent extends React.Component {
           ],
         },
       ],
-    }
+    };
 
     let code = '<ReactEcharts ref={(e) => { this.echarts_react = e; }} \n' +
                     '    option={this.getOtion()} /> \n' +
                     '\n' +
                     '// use echarts API: http://echarts.baidu.com/api.html#echartsInstance' +
-                    'this.echarts_react.getEchartsInstance().getDataURL();'
+                    'this.echarts_react.getEchartsInstance().getDataURL();';
     return (
       <div className="examples">
         <div className="parent">
           <label> use echarts API With <strong> getEchartsInstance() </strong>: (the API will return the echarts instance, then you can use any API of echarts.)</label>
-          <ReactEcharts ref={(e) => { this.echarts_react = e }}
+          <ReactEcharts ref={(e) => { this.echarts_react = e; }}
             option={option}
           />
           <label> code below: (echarts API list see: http://echarts.baidu.com/api.html#echartsInstance)</label>
@@ -110,8 +110,8 @@ class ChartAPIComponent extends React.Component {
           </pre>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default ChartAPIComponent
+export default ChartAPIComponent;

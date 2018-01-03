@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
 
 class GaugeComponent extends React.Component {
   constructor () {
-    super()
+    super();
     const option = {
       backgroundColor: '#1b1b1b',
       tooltip: {
@@ -194,10 +194,10 @@ class GaugeComponent extends React.Component {
             },
             formatter (v) {
               switch (`${v}`) {
-                case '0': return 'E'
-                case '1': return 'Gas'
-                case '2': return 'F'
-                default: return null
+                case '0': return 'E';
+                case '1': return 'Gas';
+                case '2': return 'F';
+                default: return null;
               }
             },
           },
@@ -253,10 +253,10 @@ class GaugeComponent extends React.Component {
             },
             formatter (v) {
               switch (`${v}`) {
-                case '0': return 'H'
-                case '1': return 'Water'
-                case '2': return 'C'
-                default: return null
+                case '0': return 'H';
+                case '1': return 'Water';
+                case '2': return 'C';
+                default: return null;
               }
             },
           },
@@ -283,29 +283,29 @@ class GaugeComponent extends React.Component {
           data: [{ value: 0.5, name: 'gas' }],
         },
       ],
-    }
+    };
     this.state = {
       option,
-    }
+    };
   }
 
   componentDidMount () {
     if (this.timeTicket) {
-      clearInterval(this.timeTicket)
+      clearInterval(this.timeTicket);
     }
     this.timeTicket = setInterval(() => {
-      let { option } = this.state
-      option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0
-      option.series[1].data[0].value = (Math.random() * 7).toFixed(2) - 0
-      option.series[2].data[0].value = (Math.random() * 2).toFixed(2) - 0
-      option.series[3].data[0].value = (Math.random() * 2).toFixed(2) - 0
-      this.setState({ option })
-    }, 1000)
+      let { option } = this.state;
+      option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;
+      option.series[1].data[0].value = (Math.random() * 7).toFixed(2) - 0;
+      option.series[2].data[0].value = (Math.random() * 2).toFixed(2) - 0;
+      option.series[3].data[0].value = (Math.random() * 2).toFixed(2) - 0;
+      this.setState({ option });
+    }, 1000);
   }
 
   componentWillUnmount () {
     if (this.timeTicket) {
-      clearInterval(this.timeTicket)
+      clearInterval(this.timeTicket);
     }
   }
 
@@ -321,8 +321,8 @@ class GaugeComponent extends React.Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default GaugeComponent
+export default GaugeComponent;

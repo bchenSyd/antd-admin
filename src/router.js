@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Switch, Route, Redirect, routerRedux } from 'dva/router'
-import dynamic from 'dva/dynamic'
-import App from 'routes/app'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Switch, Route, Redirect, routerRedux } from 'dva/router';
+import dynamic from 'dva/dynamic';
+import App from 'routes/app';
 
-const { ConnectedRouter } = routerRedux
+const { ConnectedRouter } = routerRedux;
 
 const Routers = function ({ history, app }) {
   const error = dynamic({
     app,
     component: () => import('./routes/error'),
-  })
+  });
   const routes = [
     {
       path: '/dashboard',
@@ -63,7 +63,7 @@ const Routers = function ({ history, app }) {
       models: () => [import('./models/post')],
       component: () => import('./routes/post/'),
     },
-  ]
+  ];
 
   return (
     <ConnectedRouter history={history}>
@@ -86,12 +86,12 @@ const Routers = function ({ history, app }) {
         </Switch>
       </App>
     </ConnectedRouter>
-  )
-}
+  );
+};
 
 Routers.propTypes = {
   history: PropTypes.object,
   app: PropTypes.object,
-}
+};
 
-export default Routers
+export default Routers;

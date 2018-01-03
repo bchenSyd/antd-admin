@@ -1,24 +1,24 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { routerRedux } from 'dva/router'
-import { connect } from 'dva'
-import { Row, Col, Button, Popconfirm } from 'antd'
-import { Page } from 'components'
-import queryString from 'query-string'
-import List from './List'
-import Filter from './Filter'
-import Modal from './Modal'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { routerRedux } from 'dva/router';
+import { connect } from 'dva';
+import { Row, Col, Button, Popconfirm } from 'antd';
+import { Page } from 'components';
+import queryString from 'query-string';
+import List from './List';
+import Filter from './Filter';
+import Modal from './Modal';
 
 
 const User = ({
   location, dispatch, user, loading,
 }) => {
-  location.query = queryString.parse(location.search)
-  const { query, pathname } = location
+  location.query = queryString.parse(location.search);
+  const { query, pathname } = location;
   const {
     list, pagination, currentItem, modalVisible, modalType, isMotion, selectedRowKeys,
-  } = user
-  const { pageSize } = pagination
+  } = user;
+  const { pageSize } = pagination;
 
   const modalProps = {
     item: modalType === 'create' ? {} : currentItem,
@@ -31,14 +31,14 @@ const User = ({
       dispatch({
         type: `user/${modalType}`,
         payload: data,
-      })
+      });
     },
     onCancel () {
       dispatch({
         type: 'user/hideModal',
-      })
+      });
     },
-  }
+  };
 
   const listProps = {
     dataSource: list,
@@ -54,13 +54,13 @@ const User = ({
           page: page.current,
           pageSize: page.pageSize,
         }),
-      }))
+      }));
     },
     onDeleteItem (id) {
       dispatch({
         type: 'user/delete',
         payload: id,
-      })
+      });
     },
     onEditItem (item) {
       dispatch({
@@ -69,7 +69,7 @@ const User = ({
           modalType: 'update',
           currentItem: item,
         },
-      })
+      });
     },
     rowSelection: {
       selectedRowKeys,
@@ -79,10 +79,10 @@ const User = ({
           payload: {
             selectedRowKeys: keys,
           },
-        })
+        });
       },
     },
-  }
+  };
 
   const filterProps = {
     isMotion,
@@ -97,7 +97,7 @@ const User = ({
           page: 1,
           pageSize,
         }),
-      }))
+      }));
     },
     onSearch (fieldsValue) {
       fieldsValue.keyword.length ? dispatch(routerRedux.push({
@@ -108,7 +108,7 @@ const User = ({
         },
       })) : dispatch(routerRedux.push({
         pathname: '/user',
-      }))
+      }));
     },
     onAdd () {
       dispatch({
@@ -116,12 +116,12 @@ const User = ({
         payload: {
           modalType: 'create',
         },
-      })
+      });
     },
     switchIsMotion () {
-      dispatch({ type: 'user/switchIsMotion' })
+      dispatch({ type: 'user/switchIsMotion' });
     },
-  }
+  };
 
   const handleDeleteItems = () => {
     dispatch({
@@ -129,8 +129,8 @@ const User = ({
       payload: {
         ids: selectedRowKeys,
       },
-    })
-  }
+    });
+  };
 
   return (
     <Page inner>
@@ -149,14 +149,14 @@ const User = ({
       <List {...listProps} />
       {modalVisible && <Modal {...modalProps} />}
     </Page>
-  )
-}
+  );
+};
 
 User.propTypes = {
   user: PropTypes.object,
   location: PropTypes.object,
   dispatch: PropTypes.func,
   loading: PropTypes.object,
-}
+};
 
-export default connect(({ user, loading }) => ({ user, loading }))(User)
+export default connect(({ user, loading }) => ({ user, loading }))(User);

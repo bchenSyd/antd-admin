@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
-import './theme/macarons.js'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
+import './theme/macarons.js';
 
 const SimpleChartComponent = () => {
   const option = {
@@ -59,11 +59,11 @@ const SimpleChartComponent = () => {
         data: [150, 232, 201, 154, 190, 330, 410],
       },
     ],
-  }
+  };
   let code = '<ReactEcharts \n' +
                     '    option={this.getOtion()} \n' +
                     "    style={{height: '350px', width: '100%'}}  \n" +
-                    "    className='react_for_echarts' />"
+                    "    className='react_for_echarts' />";
   return (
     <div className="examples">
       <div className="parent">
@@ -80,8 +80,8 @@ const SimpleChartComponent = () => {
         </pre>
       </div>
     </div>
-  )
-}
+  );
+};
 
 
-export default SimpleChartComponent
+export default SimpleChartComponent;

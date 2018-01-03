@@ -1,14 +1,14 @@
-import { request, config } from 'utils'
+import { request, config } from 'utils';
 
-const { api } = config
-const { users } = api
+const { api } = config;
+const { users } = api;
 
 export async function query (params) {
   return request({
     url: users,
     method: 'get',
     data: params,
-  })
+  });
 }
 
 export async function remove (params) {
@@ -16,5 +16,5 @@ export async function remove (params) {
     url: users,
     method: 'delete',
     data: params,
-  })
+  });
 }

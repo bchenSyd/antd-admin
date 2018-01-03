@@ -1,7 +1,7 @@
-import React from 'react'
-import AdSense from 'react-adsense'
-import { Link } from 'react-router'
-import DynamicChartComponent from './DynamicChartComponent.js'
+import React from 'react';
+import AdSense from 'react-adsense';
+import { Link } from 'react-router';
+import DynamicChartComponent from './DynamicChartComponent.js';
 
 
 const MainPageComponent = () => {
@@ -38,7 +38,7 @@ const MainPageComponent = () => {
 
       <h3>Get it on GitHub! <a href="https://github.com/hustcc/echarts-for-react">hustcc/echarts-for-react</a></h3>
     </div>
-  )
-}
+  );
+};
 
-export default MainPageComponent
+export default MainPageComponent;

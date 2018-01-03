@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
-import 'echarts-gl'
+import React from 'react';
+import ReactEcharts from 'echarts-for-react';
+import 'echarts-gl';
 
 const option = {
   globe: {
@@ -49,14 +49,14 @@ const option = {
     },
   },
   series: [],
-}
+};
 
 const MoonComponent = () => {
   return (<ReactEcharts
     option={option}
     style={{ height: '700px', width: '100%' }}
     className="react_for_echarts"
-  />)
-}
+  />);
+};
 
-export default MoonComponent
+export default MoonComponent;

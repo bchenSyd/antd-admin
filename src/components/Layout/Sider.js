@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Icon, Switch } from 'antd'
-import { config } from 'utils'
-import styles from './Layout.less'
-import Menus from './Menu'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Icon, Switch } from 'antd';
+import { config } from 'utils';
+import styles from './Layout.less';
+import Menus from './Menu';
 
 const Sider = ({
   siderFold, darkTheme, location, changeTheme, navOpenKeys, changeOpenKeys, menu,
@@ -15,7 +15,7 @@ const Sider = ({
     location,
     navOpenKeys,
     changeOpenKeys,
-  }
+  };
   return (
     <div>
       <div className={styles.logo}>
@@ -28,8 +28,8 @@ const Sider = ({
         <Switch onChange={changeTheme} defaultChecked={darkTheme} checkedChildren="Dark" unCheckedChildren="Light" />
       </div> : ''}
     </div>
-  )
-}
+  );
+};
 
 Sider.propTypes = {
   menu: PropTypes.array,
@@ -39,6 +39,6 @@ Sider.propTypes = {
   changeTheme: PropTypes.func,
   navOpenKeys: PropTypes.array,
   changeOpenKeys: PropTypes.func,
-}
+};
 
-export default Sider
+export default Sider;

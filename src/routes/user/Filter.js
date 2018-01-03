@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import moment from 'moment'
-import { FilterItem } from 'components'
-import { Form, Button, Row, Col, DatePicker, Input, Cascader, Switch } from 'antd'
-import city from '../../utils/city'
+import React from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import { FilterItem } from 'components';
+import { Form, Button, Row, Col, DatePicker, Input, Cascader, Switch } from 'antd';
+import city from '../../utils/city';
 
-const { Search } = Input
-const { RangePicker } = DatePicker
+const { Search } = Input;
+const { RangePicker } = DatePicker;
 
 const ColProps = {
   xs: 24,
@@ -14,12 +14,12 @@ const ColProps = {
   style: {
     marginBottom: 16,
   },
-}
+};
 
 const TwoColProps = {
   ...ColProps,
   xl: 96,
-}
+};
 
 const Filter = ({
   onAdd,
@@ -34,48 +34,48 @@ const Filter = ({
   },
 }) => {
   const handleFields = (fields) => {
-    const { createTime } = fields
+    const { createTime } = fields;
     if (createTime.length) {
-      fields.createTime = [createTime[0].format('YYYY-MM-DD'), createTime[1].format('YYYY-MM-DD')]
+      fields.createTime = [createTime[0].format('YYYY-MM-DD'), createTime[1].format('YYYY-MM-DD')];
     }
-    return fields
-  }
+    return fields;
+  };
 
   const handleSubmit = () => {
-    let fields = getFieldsValue()
-    fields = handleFields(fields)
-    onFilterChange(fields)
-  }
+    let fields = getFieldsValue();
+    fields = handleFields(fields);
+    onFilterChange(fields);
+  };
 
   const handleReset = () => {
-    const fields = getFieldsValue()
+    const fields = getFieldsValue();
     for (let item in fields) {
       if ({}.hasOwnProperty.call(fields, item)) {
         if (fields[item] instanceof Array) {
-          fields[item] = []
+          fields[item] = [];
         } else {
-          fields[item] = undefined
+          fields[item] = undefined;
         }
       }
     }
-    setFieldsValue(fields)
-    handleSubmit()
-  }
+    setFieldsValue(fields);
+    handleSubmit();
+  };
 
   const handleChange = (key, values) => {
-    let fields = getFieldsValue()
-    fields[key] = values
-    fields = handleFields(fields)
-    onFilterChange(fields)
-  }
-  const { name, address } = filter
+    let fields = getFieldsValue();
+    fields[key] = values;
+    fields = handleFields(fields);
+    onFilterChange(fields);
+  };
+  const { name, address } = filter;
 
-  let initialCreateTime = []
+  let initialCreateTime = [];
   if (filter.createTime && filter.createTime[0]) {
-    initialCreateTime[0] = moment(filter.createTime[0])
+    initialCreateTime[0] = moment(filter.createTime[0]);
   }
   if (filter.createTime && filter.createTime[1]) {
-    initialCreateTime[1] = moment(filter.createTime[1])
+    initialCreateTime[1] = moment(filter.createTime[1]);
   }
 
   return (
@@ -109,8 +109,8 @@ const Filter = ({
         </div>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
 Filter.propTypes = {
   onAdd: PropTypes.func,
@@ -119,6 +119,6 @@ Filter.propTypes = {
   form: PropTypes.object,
   filter: PropTypes.object,
   onFilterChange: PropTypes.func,
-}
+};
 
-export default Form.create()(Filter)
+export default Form.create()(Filter);

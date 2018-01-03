@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Form, Input, InputNumber, Radio, Modal, Cascader } from 'antd'
-import city from '../../utils/city'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Form, Input, InputNumber, Radio, Modal, Cascader } from 'antd';
+import city from '../../utils/city';
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 const formItemLayout = {
   labelCol: {
@@ -12,7 +12,7 @@ const formItemLayout = {
   wrapperCol: {
     span: 14,
   },
-}
+};
 
 const modal = ({
   item = {},
@@ -27,21 +27,21 @@ const modal = ({
   const handleOk = () => {
     validateFields((errors) => {
       if (errors) {
-        return
+        return;
       }
       const data = {
         ...getFieldsValue(),
         key: item.key,
-      }
-      data.address = data.address.join(' ')
-      onOk(data)
-    })
-  }
+      };
+      data.address = data.address.join(' ');
+      onOk(data);
+    });
+  };
 
   const modalOpts = {
     ...modalProps,
     onOk: handleOk,
-  }
+  };
 
   return (
     <Modal {...modalOpts}>
@@ -78,7 +78,7 @@ const modal = ({
           })(<Radio.Group>
             <Radio value>Male</Radio>
             <Radio value={false}>Female</Radio>
-             </Radio.Group>)}
+          </Radio.Group>)}
         </FormItem>
         <FormItem label="Age" hasFeedback {...formItemLayout}>
           {getFieldDecorator('age', {
@@ -131,14 +131,14 @@ const modal = ({
         </FormItem>
       </Form>
     </Modal>
-  )
-}
+  );
+};
 
 modal.propTypes = {
   form: PropTypes.object.isRequired,
   type: PropTypes.string,
   item: PropTypes.object,
   onOk: PropTypes.func,
-}
+};
 
-export default Form.create()(modal)
+export default Form.create()(modal);

@@ -1,6 +1,6 @@
-import React from 'react'
-import { DropOption, Page } from 'components'
-import { Table, Row, Col, Card, message } from 'antd'
+import React from 'react';
+import { DropOption, Page } from 'components';
+import { Table, Row, Col, Card, message } from 'antd';
 
 const DropOptionPage = () => (<Page inner>
   <Row gutter={32}>
@@ -22,13 +22,13 @@ const DropOptionPage = () => (<Page inner>
           onMenuClick={({ key }) => {
             switch (key) {
               case '1':
-                message.success('点击了编辑')
-                break
+                message.success('点击了编辑');
+                break;
               case '2':
-                message.success('点击了删除')
-                break
+                message.success('点击了删除');
+                break;
               default:
-                break
+                break;
             }
           }}
         />
@@ -90,6 +90,6 @@ const DropOptionPage = () => (<Page inner>
       />
     </Col>
   </Row>
-</Page>)
+</Page>);
 
-export default DropOptionPage
+export default DropOptionPage;

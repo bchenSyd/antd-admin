@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Menu, Icon, Popover, Layout } from 'antd'
-import classnames from 'classnames'
-import styles from './Header.less'
-import Menus from './Menu'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Menu, Icon, Popover, Layout } from 'antd';
+import classnames from 'classnames';
+import styles from './Header.less';
+import Menus from './Menu';
 
-const { SubMenu } = Menu
+const { SubMenu } = Menu;
 
 const Header = ({
   user, logout, switchSider, siderFold, isNavbar, menuPopoverVisible, location, switchMenuPopover, navOpenKeys, changeOpenKeys, menu,
 }) => {
-  let handleClickMenu = e => e.key === 'logout' && logout()
+  let handleClickMenu = e => e.key === 'logout' && logout();
   const menusProps = {
     menu,
     siderFold: false,
@@ -20,7 +20,7 @@ const Header = ({
     location,
     navOpenKeys,
     changeOpenKeys,
-  }
+  };
   return (
     <Layout.Header className={styles.header}>
       {isNavbar
@@ -56,8 +56,8 @@ const Header = ({
         </Menu>
       </div>
     </Layout.Header>
-  )
-}
+  );
+};
 
 Header.propTypes = {
   menu: PropTypes.array,
@@ -71,6 +71,6 @@ Header.propTypes = {
   switchMenuPopover: PropTypes.func,
   navOpenKeys: PropTypes.array,
   changeOpenKeys: PropTypes.func,
-}
+};
 
-export default Header
+export default Header;

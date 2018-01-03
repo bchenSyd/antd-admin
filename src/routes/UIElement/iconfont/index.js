@@ -1,16 +1,16 @@
-import React from 'react'
-import { Iconfont, Page } from 'components'
-import { Table, Row, Col, Icon } from 'antd'
-import styles from './index.less'
-import './emoji'
+import React from 'react';
+import { Iconfont, Page } from 'components';
+import { Table, Row, Col, Icon } from 'antd';
+import styles from './index.less';
+import './emoji';
 
 const colorfulIcons = ['boluo', 'baixiangguo', 'chengzi', 'boluomei', 'caomei', 'dayouzi', 'chelizi', 'fanqie', 'hamigua', 'ganlan',
-  'juzi', 'heimei', 'huolongguo', 'hongmei', 'lizi', 'lanmei', 'mangguo', 'mihoutao', 'longyan', 'mugua', 'lizi1', 'ningmeng']
+  'juzi', 'heimei', 'huolongguo', 'hongmei', 'lizi', 'lanmei', 'mangguo', 'mihoutao', 'longyan', 'mugua', 'lizi1', 'ningmeng'];
 
 const flatIcons = ['home', 'user', 'timelimit', 'shopcart', 'message', 'remind', 'service', 'shop', 'sweep', 'express',
-  'payment', 'search', 'feedback', 'pencil', 'setting', 'refund', 'delete', 'star', 'heart', 'share', 'location', 'console']
+  'payment', 'search', 'feedback', 'pencil', 'setting', 'refund', 'delete', 'star', 'heart', 'share', 'location', 'console'];
 
-const localSVGIcons = ['vomiting', 'smirking', 'surprised', 'unamused', 'zombie', 'tired', 'tongue', 'wink']
+const localSVGIcons = ['vomiting', 'smirking', 'surprised', 'unamused', 'zombie', 'tired', 'tongue', 'wink'];
 
 const localRequireSVGIcons = [
   require('../../../svg/cute/congratulations.svg'),
@@ -22,7 +22,7 @@ const localRequireSVGIcons = [
   require('../../../svg/cute/shy.svg'),
   require('../../../svg/cute/sweat.svg'),
   require('../../../svg/cute/think.svg'),
-]
+];
 
 const IcoPage = () => (<Page inner>
   <Icon type="star-oo" />
@@ -111,6 +111,6 @@ const IcoPage = () => (<Page inner>
       <a href="http://www.iconfont.cn/collections/detail?cid=4268" target="_blank" rel="noopener noreferrer"> http://www.iconfont.cn/collections/detail?cid=4268</a>
     </p>
   </div>
-</Page>)
+</Page>);
 
-export default IcoPage
+export default IcoPage;

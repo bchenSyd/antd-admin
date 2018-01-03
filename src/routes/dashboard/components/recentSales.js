@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Table, Tag } from 'antd'
-import { color } from 'utils'
-import styles from './recentSales.less'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Table, Tag } from 'antd';
+import { color } from 'utils';
+import styles from './recentSales.less';
 
 const status = {
   1: {
@@ -21,7 +21,7 @@ const status = {
     color: color.blue,
     text: 'EXTENDED',
   },
-}
+};
 
 function RecentSales ({ data }) {
   const columns = [
@@ -41,16 +41,16 @@ function RecentSales ({ data }) {
       dataIndex: 'price',
       render: (text, it) => <span style={{ color: status[it.status].color }}>${text}</span>,
     },
-  ]
+  ];
   return (
     <div className={styles.recentsales}>
       <Table pagination={false} columns={columns} rowKey={(record, key) => key} dataSource={data.filter((item, key) => key < 5)} />
     </div>
-  )
+  );
 }
 
 RecentSales.propTypes = {
   data: PropTypes.array,
-}
+};
 
-export default RecentSales
+export default RecentSales;
