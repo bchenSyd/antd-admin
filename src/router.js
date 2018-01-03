@@ -18,8 +18,8 @@ const Routers = function ({ history, app }) {
       component: () => import('./routes/dashboard/'),
     }, {
       path: '/user',
-      models: () => [import('./models/user')],
-      component: () => import('./routes/user/'),
+      models: () => [import(/* webpackChunkName: "user-model" */'./models/user')],
+      component: () => import(/* webpackChunkName: "user-component" */ './routes/user/'),
     }, {
       path: '/user/:id',
       models: () => [import('./models/user/detail')],
