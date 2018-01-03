@@ -30,6 +30,7 @@ const App = ({
   pathname = pathname.startsWith('/') ? pathname : `/${pathname}`;
   const { iconFontJS, iconFontCSS, logo } = config;
   const current = menu.filter(item => pathToRegexp(item.route || '').exec(pathname));
+  // determine whether show a Error page or the real content (depending on user permission)
   const hasPermission = current.length ? permissions.visit.includes(current[0].id) : false;
   const { href } = window.location;
 

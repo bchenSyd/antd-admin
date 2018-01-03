@@ -80,6 +80,7 @@ export default {
               item.mpid ? permissions.visit.includes(item.mpid) || item.mpid === '-1' : true,
               item.bpid ? permissions.visit.includes(item.bpid) : true,
             ];
+            // filter side menu list;
             return cases.every(_ => _);
           });
         }
