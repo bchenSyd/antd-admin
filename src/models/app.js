@@ -61,14 +61,23 @@ export default {
 
   },
   effects: {
-
+/*
+  1.  Each function below returns a plain JavaScript object and does not perform any execution.
+  2.  The execution is performed by the middleware during the Iteration process described above.
+  3.  The middleware examines each Effect description and performs the appropriate action.
+ */
     * query ({
       payload,
-    }, { call, put, select }) {
+      // https://redux-saga.js.org/docs/api/
+    }, { call /* call the function with args */, put /* dispatch action to store */, select /* getState */ }) {
       const { success, user } = yield call(query, payload);
       // returns the result of selector(getState(), ...args)
       const { locationPathname } = yield select(state => state.app); // see line 34, 44;
+
+      // make a request to get current user (via cookie), if request succeeds, it means user is logged in (with a cookie)
+      // otherwise direct current request to /login page;
       if (success && user) {
+        // user already logged in (with cookie), `user` info retrieved; now populate the Menu according to perissions
         const { list } = yield call(menusService.query);
         const { permissions } = user;
         let menu = list;
@@ -81,7 +90,7 @@ export default {
               item.mpid ? permissions.visit.includes(item.mpid) || item.mpid === '-1' : true,
               item.bpid ? permissions.visit.includes(item.bpid) : true,
             ];
-            // filter side menu list;
+            // filter side menu list; only show menu items that user has permission on;
             return cases.every(_ => _);
           });
         }
@@ -93,12 +102,15 @@ export default {
             menu,
           },
         });
+        // if a logged in user try to acess /login again, rediect to /dashboard page;
         if (location.pathname === '/login') { // eslint-disable-line no-restricted-globals
           yield put(routerRedux.push({
             pathname: '/dashboard',
           }));
         }
       } else if (config.openPages && config.openPages.indexOf(locationPathname) < 0) {
+        // user is not logged in yet and is trying to access a prootected page ( config.openPages.indexOf(page2access) === -1)
+        // redirect to login page;
         yield put(routerRedux.push({
           pathname: '/login',
           search: queryString.stringify({
