@@ -66,7 +66,8 @@ export default {
       payload,
     }, { call, put, select }) {
       const { success, user } = yield call(query, payload);
-      const { locationPathname } = yield select(_ => _.app);
+      // returns the result of selector(getState(), ...args)
+      const { locationPathname } = yield select(state => state.app); // see line 34, 44;
       if (success && user) {
         const { list } = yield call(menusService.query);
         const { permissions } = user;
@@ -119,7 +120,7 @@ export default {
     },
 
     * changeNavbar (action, { put, select }) {
-      const { app } = yield (select(_ => _));
+      const { app } = yield (select());
       const isNavbar = document.body.clientWidth < 769;
       if (isNavbar !== app.isNavbar) {
         yield put({ type: 'handleNavbar', payload: isNavbar });
